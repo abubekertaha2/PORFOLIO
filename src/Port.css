@@ -1,0 +1,37 @@
+html {
+    scroll-behavior: smooth;
+}
+.underline-custom {
+    position: relative;
+    display: inline-block;
+}
+
+.underline-custom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 6px;
+    background:linear-gradient(90deg, green, #ff5733, #ffcc00, #3363ff); 
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+}
+
+.underline-custom:hover::after {
+    transform: scaleX(1);
+}
+.nav-link {
+    transition: color 1s ease, transform 0.3s ease;
+    color: #ffffff;
+}
+
+.nav-link:hover {
+    color: #ff6347;
+    box-shadow: 0 4px 10px rgba(98, 201, 50, 0.801); 
+    transform: scale(1.2); 
+}
+
+nav a {
+    text-decoration: none; 
+}

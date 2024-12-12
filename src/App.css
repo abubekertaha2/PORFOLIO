@@ -1,0 +1,25 @@
+.header {
+  margin: 38px;
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.header label {
+  display: block;
+  margin-top: 10px;
+}
+
+.header input,
+.header textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.header h1 {
+  margin: 0;
+}

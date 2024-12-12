@@ -1,0 +1,37 @@
+.cv-container {
+    max-width: 900px;
+    margin:20px auto;
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 8px;
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header {
+    text-align: center;
+}
+.cv-header .abuki{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid #007bff;
+}
+.img{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+}
+.img img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.cv-section {
+    margin: 20px 0;
+}
+
+.cv-section h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
