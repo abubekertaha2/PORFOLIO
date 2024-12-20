@@ -24,7 +24,7 @@ function Cv() {
             </header>
             <section className="cv-section mt-6">
                 <h2 className="text-2xl font-semibold border-b-2 border-blue-500 pb-2">Profile</h2>
-                <p className="mt-2">
+                <p className="pt-10 text-xl text-indigo-300">
                     Driven Electrical and Computer
                     Engineering student with a strong
                     passion for front-end web
@@ -40,7 +40,6 @@ function Cv() {
                     professional growth, I aim to
                     contribute to your institute network
                     as developer.
-                    Core Competencies
                 </p>
             </section>
             <section className="cv-section mt-6">
@@ -58,12 +57,46 @@ function Cv() {
             </section>
             <section className="cv-section mt-6">
                 <h2 className="text-2xl font-semibold border-b-2 border-blue-500 pb-2">Skills</h2>
-                <ul className="list-disc list-inside mt-2">
-                    <li>Python</li>
-                    <li>JavaScript /React/</li>
-                    <li>HTML and CSS / Tailwind/Bootstrap</li>
-                </ul>
-            </section>
+                <div className="mt-4">
+                    <div className="flex justify-between items-center mb-2">
+                        <span>Python</span>
+                        <span>75%</span>
+                    </div>
+                    <div className="bg-gray-300 rounded-full h-4">
+                        <div className="bg-blue-500 h-4 rounded-full" style={{ width: '75%' }} />
+                        </div>
+                    </div>
+  
+                <div className="mt-4">
+                    <div className="flex justify-between items-center mb-2">
+                        <span>JavaScript / React</span>
+                        <span>70%</span>
+                    </div>
+                    <div className="bg-gray-300 rounded-full h-4">
+                        <div className="bg-blue-500 h-4 rounded-full" style={{ width: '70%' }} />
+                        </div>
+                    </div>
+
+                <div className="mt-4">
+                    <div className="flex justify-between items-center mb-2">
+                        <span>HTML / HTML5</span>
+                        <span>80%</span>
+                    </div>
+    <div className="bg-gray-300 rounded-full h-4">
+      <div className="bg-blue-500 h-4 rounded-full" style={{ width: '80%' }} />
+    </div>
+  </div>
+
+  <div className="mt-4">
+    <div className="flex justify-between items-center mb-2">
+      <span>CSS / Tailwind / Bootstrap</span>
+      <span>75%</span>
+    </div>
+    <div className="bg-gray-300 rounded-full h-4">
+      <div className="bg-blue-500 h-4 rounded-full" style={{ width: '75%' }} />
+    </div>
+  </div>
+</section>
         </div>
     );
 }

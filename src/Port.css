@@ -1,6 +1,13 @@
 html {
     scroll-behavior: smooth;
 }
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; 
+    color: #333;
+}
+
 .underline-custom {
     position: relative;
     display: inline-block;
@@ -13,7 +20,7 @@ html {
     right: 0;
     bottom: 0;
     height: 6px;
-    background:linear-gradient(90deg, green, #ff5733, #ffcc00, #3363ff); 
+    background: linear-gradient(90deg, green, #ff5733, #ffcc00, #3363ff);
     transform: scaleX(0);
     transition: transform 0.5s ease;
 }
@@ -21,17 +28,139 @@ html {
 .underline-custom:hover::after {
     transform: scaleX(1);
 }
+
+nav {
+    /* background: rgba(18, 82, 211, 0.8); */
+    backdrop-filter: blur(10px); 
+    border-bottom: 2px solid #ff5733; 
+}
+
+nav ul {
+    transition: max-height 0.3s ease-in-out;
+    flex-wrap: wrap;
+}
+
+nav ul.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+
+nav ul.flex {
+    max-height: 500px;
+}
+
 .nav-link {
-    transition: color 1s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
     color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 5px; 
 }
 
 .nav-link:hover {
     color: #ff6347;
-    box-shadow: 0 4px 10px rgba(98, 201, 50, 0.801); 
-    transform: scale(1.2); 
+    background-color: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 4px 10px rgba(98, 201, 50, 0.801);
+    transform: scale(1.1);
 }
 
 nav a {
-    text-decoration: none; 
+    text-decoration: none;
+}
+
+.social-links {
+    /* position: absolute;  */
+    margin:15px auto;
+    bottom: 15px;  
+    display: flex;
+    gap: 5px;
+}
+
+.social-links a {
+    color: blue; 
+    font-size: 3rem; 
+    transition: color 0.3s; 
+}
+
+.social-links a:hover {
+    color: #ff6347;
+}
+@media (max-width: 768px) {
+    .social-links {
+        bottom: 10px; 
+        right: 10px; 
+    }
+    
+    .social-links a {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        bottom: 5px; 
+        right: 5px; 
+    }
+    
+    .social-links a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    header {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .box {
+        padding: 3px;
+    }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    header {
+        padding: 40px;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .box {
+        padding: 5px;
+    }
+}
+@media (min-width: 1025px) {
+    nav {
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+    header {
+        padding: 60px;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .box {
+        padding: 10px;
+    }
 }

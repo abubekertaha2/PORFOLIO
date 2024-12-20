@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import './Port.css';
 import AgaImg from './assets/Aga.jpg';
 import p1 from './assets/p1.png';
@@ -16,136 +17,157 @@ import p7 from './assets/p7.jpg';
 import p8 from './assets/p8.jpg';
 import p9 from './assets/p9.jpg';
 function App() {
-  const portfolioImages = [p3, p4, p5, p6, p7, p8, p9, p10,p11,p12,p13,p14];
-  useEffect(() => {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault(); 
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const portfolioImages = [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14];
 
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    });
-}, []);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(true);
+      } else {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev);
+  };
+
   return (
-    <main className="p-10 px-10 mb-0">
-      <nav className="flex flex-row justify-between items-center relative">
-        <h1 className="text-2xl font-semibold">Abubeker</h1>
-        <ul className="flex flex-row justify-between items-center gap-5">
-          <div className="text-1g text-gray-100 nav-link"><a href="#header">Home</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#about">About</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#portfolio">Portfolio</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#projects">Projects</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#service">Service</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#cv">CV</a></div>
-          <div className="text-1g text-gray-100 nav-link"><a href="#contact">Contact</a></div>
+    <main className="p-10 mb-0">
+      <nav className="flex flex-col md:flex-row justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold mb-4 md:mb-0">Abubeker</h1>
+        <div className="md:hidden">
+          <i className='bx bx-menu cursor-pointer' onClick={toggleMenu}></i>
+        </div>
+        <ul className={`flex-col md:flex-row md:flex ${isMenuOpen ? 'flex' : 'hidden'}`}>
+          <li className="text-lg text-gray-100 nav-link"><a href="#header">Home</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#about">About</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#portfolio">Portfolio</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#projects">Projects</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#service">Service</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#cv">CV</a></li>
+          <li className="text-lg text-gray-100 nav-link"><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <header id="header" className="p-32 flex flex-col jusftify-center items-center gap-3">
+
+      <section id="header" className="p-32 flex flex-col justify-center items-center gap-3">
         <p className="text-2xl underline-custom">Hi, I'm Abubeker</p>
         <h1 className="text-5xl font-bold text-gray-200 pb-10">Web Developer</h1>
+        <div className="flex justify-around w-full mt-10">
+          <img src={p1} className='w-32 h-32 absolute top-40 left-20 rounded-full' alt="Side Image 1"/>
+          <img src={p2} className='w-32 h-32 absolute top-40 right-20 rounded-full' alt="Side Image 2"/>
+        </div>
         <img src={AgaImg} className='w-56 h-56 rounded-full border-4 border-blue-700' alt="Abubeker" />
-        <img src={p1} className='w-40 h-40 absolute top-40 left-20 rounded-full'/>
-        <img src={p2} className='w-40 h-40 absolute top-40 right-20 rounded-full'/>
-      </header>
+      </section>
+      <div className="social-links"> 
+          <a href="https://www.linkedin.com/in/abubeker-taha-7bbb21296" target="_blank" rel="noopener noreferrer">
+            <i className='bx bxl-linkedin'></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <i className='bx bxl-instagram'></i>
+          </a>
+          <a href="https://web.facebook.com/abubeker2" target="_blank" rel="noopener noreferrer">
+            <i className='bx bxl-facebook'></i>
+          </a>
+          <a href="https://wa.me/+251968318913" target="_blank" rel="noopener noreferrer">
+            <i className='bx bxl-whatsapp'></i>
+          </a>
+        </div>
       <section id="about" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold text-center underline-custom">About Me</h1>
-        <p className='pt-10 text-1xl text-indigo-300'>Im Abubeker Taha, a 5th year Electrical and Computer Engineering student at AAIT University. Alongside my core engineering studies, I've developed a strong passion for web development and building responsive, user-centric digital experiences.</p>
+        <p className='pt-10 text-xl text-indigo-300'>
+                    I'm Abubeker Taha, a 5th year Electrical and Computer Engineering student at AAIT University. 
+                    Alongside my core engineering studies, I have developed a strong passion for 
+                    web development and 
+                    building responsive, user-centric digital experiences. Committed
+                    to continuous learning and
+                    professional growth, I aim to
+                    contribute to your institute network
+                    as developer.
+        </p>
       </section>
       <section id="portfolio" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold underline-custom">Portfolio</h1>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
           {portfolioImages.map((image, index) => (
             <div key={index} className="overflow-hidden rounded-lg shadow-lg">
-              <img
-                src={image}
-                className="w-full h-48 object-cover" 
-                alt={`Portfolio item ${index + 1}`}
-              />
+              <img src={image} className="w-full h-48 object-cover" alt={`Portfolio item ${index + 1}`} />
             </div>
           ))}
         </div>
       </section>
-      <section id="projects" className="p-10">
-    <h2 className="text-3xl font-bold underline-custom">Projects</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 ">
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-bold">Tic-Tac-Toe Game</h3>
-            <p>A classic Tic-Tac-Toe game built with JavaScript. Players can take turns and see the winner.</p>
-            <a href="https://tic-tac-toe-game-nu-nine.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">Sign-Up Form</h3>
-            <p>An interactive sign-up form with validation and user-friendly design.</p>
-            <a href="https://sign-up-five-orcin.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">Weather App</h3>
-            <p>A weather application that fetches data from an API to show current weather conditions.</p>
-            <a href="https://weather-app-flame-pi-58.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">My Library</h3>
-            <p>An application for managing personal book collections with features to add, remove, and view books.</p>
-            <a href="https://my-library-neon.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">Admin Dashboard</h3>
-            <p>A responsive admin dashboard with user management and data visualization features.</p>
-            <a href="https://admin-dashboard-iota-olive.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">Calculator</h3>
-            <p>A simple calculator application with basic arithmetic operations.</p>
-            <a href="https://calculator-api2.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">CV Application</h3>
-            <p>A web application for creating and managing CVs with various templates.</p>
-            <a href="https://cv-application-umber-xi.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
-        <div className="border rounded-lg p-4 bg-slate-500 shadow">
-            <h3 className="font-semibold">Amphibia Memory Card</h3>
-            <p>A fun memory card game featuring amphibian characters for players to match.</p>
-            <a href="https://amphibia-memory-card.vercel.app/" target="_blank" className="text-blue-500">View Project</a>
-        </div>
 
-    </div>
-</section>
+      <section id="projects" className="p-1">
+        <h2 className="text-3xl font-bold underline-custom">Projects</h2>
+        <div className="mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <ProjectCard title="Tic-Tac-Toe Game" description="A classic Tic-Tac-Toe game built with JavaScript." link="https://tic-tac-toe-game-nu-nine.vercel.app/" />
+          <ProjectCard title="Sign-Up Form" description="An interactive sign-up form with validation and user-friendly design." link="https://sign-up-five-orcin.vercel.app/" />
+          <ProjectCard title="Weather App" description="A weather application that fetches data from an API to show current weather conditions." link="https://weather-app-flame-pi-58.vercel.app/" />
+          <ProjectCard title="My Library" description="An application for managing personal book collections." link="https://my-library-neon.vercel.app/" />
+          <ProjectCard title="Admin Dashboard" description="A responsive admin dashboard with user management features." link="https://admin-dashboard-iota-olive.vercel.app/" />
+          <ProjectCard title="Calculator" description="A simple calculator application with basic arithmetic operations." link="https://calculator-api2.vercel.app/" />
+          <ProjectCard title="CV Application" description="A web application for creating and managing CVs." link="https://cv-application-umber-xi.vercel.app/" />
+          <ProjectCard title="Amphibia Memory Card" description="A fun memory card game featuring amphibian characters." link="https://amphibia-memory-card.vercel.app/" />
+        </div>
+      </section>
       <section id="service" className="py-16 bg-blue-950">
-        <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-              <h2 className="text-xl font-semibold">WEBSITE DESIGN</h2>
-              <p className="mt-2 text-white">Creating visually appealing and user-friendly websites tailored to your business needs. I focus on intuitive navigation, responsive layouts, and engaging user experiences.</p>
-            </div>
-            <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold">UI/GUI</h2>
-            <p className="mt-2 text-white">Designing intuitive user interfaces and graphical user interfaces that enhance user interaction and satisfaction. I prioritize usability and accessibility in all designs.</p>
-        </div>
-        <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold">SOFTWARE DEV</h2>
-            <p className="mt-2 text-white">Developing robust software solutions that meet the specific requirements of your business. I leverage modern technologies to build scalable and maintainable applications.</p>
-        </div>
-        <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold">API DEVELOPMENT</h2>
-            <p className="mt-2 text-white">Design and implement RESTful APIs to enable seamless communication between frontend and backend systems. This service enhances functionality and allows for efficient data exchange.</p>
-        </div>
-        <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold">DATABASE MANAGEMENT</h2>
-            <p className="mt-2 text-white">Managing and optimizing databases to ensure data integrity, security, and performance. I design schemas and write efficient queries to support application needs.</p>
-        </div>
-        <div className="box bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105">
-            <h2 className="text-xl font-semibold">RESPONSIVE WEB DESIGN</h2>
-            <p className="mt-2 text-white">Creating responsive web applications that provide optimal viewing experiences across all devices. I ensure your site looks great on desktops, tablets, and smartphones.</p>
-        </div>
-    </div>
+  <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
+  <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
+    <ServiceCard title="UI/GUI" description="Designing intuitive user interfaces that enhance user interaction." />
+    <ServiceCard title="SOFTWARE DEV" description="Developing robust software solutions that meet your business requirements." />
+    <ServiceCard title="API DEVELOPMENT" description="Implementing RESTful APIs for seamless communication between frontend and backend." />
+    <ServiceCard title="DATABASE MANAGEMENT" description="Managing and optimizing databases for data integrity and performance." />
+    <ServiceCard title="RESPONSIVE WEB DESIGN" description="Creating responsive web applications for optimal viewing experiences across all devices." />
+    <ServiceCard title="FULL STACK DEVELOPMENT" description="Building complete web solutions from front-end to back-end." />
+    <ServiceCard title="E-COMMERCE SOLUTIONS" description="Developing full-featured e-commerce platforms for online businesses." />
+  </div>
 </section>
+      {/* <section id="service" className="py-16 bg-blue-950">
+  <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
+  <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
+    <ServiceCard title="UI/GUI" description="Designing intuitive user interfaces that enhance user interaction." />
+    <ServiceCard title="SOFTWARE DEV" description="Developing robust software solutions that meet your business requirements." />
+    <ServiceCard title="API DEVELOPMENT" description="Implementing RESTful APIs for seamless communication between frontend and backend." />
+    <ServiceCard title="DATABASE MANAGEMENT" description="Managing and optimizing databases for data integrity and performance." />
+    <ServiceCard title="RESPONSIVE WEB DESIGN" description="Creating responsive web applications for optimal viewing experiences across all devices." />
+  </div>
+</section> */}
     </main>
-  )
+  );
 }
-export default App
+
+const ProjectCard = ({ title, description, link }) => (
+  <div className="border rounded-lg p-4 bg-slate-500 shadow">
+    <h3 className="font-bold">{title}</h3>
+    <p>{description}</p>
+    <a href={link} target="_blank" rel="noopener noreferrer" className="text-blue-500">View Project</a>
+  </div>
+);
+ProjectCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
+
+const ServiceCard = ({ title, description }) => (
+  <div className="bg-slate-500 rounded-lg shadow-md p-5 transition-transform transform hover:scale-105 h-full flex flex-col">
+    <h2 className="text-xl font-semibold text-white">{title}</h2>
+    <p className="mt-2 text-white flex-grow">{description}</p>
+  </div>
+);
+ServiceCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
+export default App;
