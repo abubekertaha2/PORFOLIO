@@ -131,17 +131,6 @@ function App() {
     <ServiceCard title="E-COMMERCE SOLUTIONS" description="Developing full-featured e-commerce platforms for online businesses." />
   </div>
 </section>
-      {/* <section id="service" className="py-16 bg-blue-950">
-  <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
-  <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
-    <ServiceCard title="UI/GUI" description="Designing intuitive user interfaces that enhance user interaction." />
-    <ServiceCard title="SOFTWARE DEV" description="Developing robust software solutions that meet your business requirements." />
-    <ServiceCard title="API DEVELOPMENT" description="Implementing RESTful APIs for seamless communication between frontend and backend." />
-    <ServiceCard title="DATABASE MANAGEMENT" description="Managing and optimizing databases for data integrity and performance." />
-    <ServiceCard title="RESPONSIVE WEB DESIGN" description="Creating responsive web applications for optimal viewing experiences across all devices." />
-  </div>
-</section> */}
     </main>
   );
 }
