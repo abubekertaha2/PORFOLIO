@@ -24,7 +24,7 @@ function Cv() {
             </header>
             <section className="cv-section mt-6">
                 <h2 className="text-2xl font-semibold border-b-2 border-blue-500 pb-2">Profile</h2>
-                <p className="pt-10 text-xl text-indigo-300">
+                <p className="font-size pt-10 text-xl text-indigo-300">
                     Driven Electrical and Computer
                     Engineering student with a strong
                     passion for front-end web

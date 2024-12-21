@@ -66,10 +66,6 @@ nav ul.flex {
 nav a {
     text-decoration: none;
 }
-img{
-    width:100%;
-    height: auto;
-}
 .social-links {
     /* position: absolute;  */
     margin:15px auto;
@@ -89,9 +85,17 @@ img{
 }
 @media screen and (max-width:500px){
     img{
-        padding:5px 5px;
-        background: #040507;
+        padding:1px;
+        margin: auto;
+        max-width: 90%;
+        /* border:1px solid white; */
+        border-radius: 5px;
     }
+    p {
+        margin-top: 10px; 
+        text-align: center;
+    }
+    .font-size{font-size: 90%;}
 }
 @media (max-width: 768px) {
     .social-links {

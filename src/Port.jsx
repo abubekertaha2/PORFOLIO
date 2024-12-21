@@ -60,12 +60,24 @@ function App() {
 
       <section id="header" className="p-32 flex flex-col justify-center items-center gap-3">
         <p className="text-2xl underline-custom">Hi, I'm Abubeker</p>
-        <h1 className="text-5xl font-bold text-gray-200 pb-10">Web Developer</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 pb-10">
+          Web Developer
+        </h1>
         <div className="flex justify-around w-full mt-10">
-          <img src={p1} className='w-32 h-32 absolute top-40 left-20 rounded-full' alt="Side Image 1"/>
-          <img src={p2} className='w-32 h-32 absolute top-40 right-20 rounded-full' alt="Side Image 2"/>
+          <img 
+            src={p1} 
+            className='w-24 h-24 sm:w-32 sm:h-32 absolute top-40 left-20 rounded-full' 
+            alt="Side Image 1"/>
+          <img 
+            src={p2} 
+            className='w-24 h-24 sm:w-32 sm:h-32 absolute top-40 right-20 rounded-full' 
+            alt="Side Image 2"/>
         </div>
-        <img src={AgaImg} className='w-56 h-56 rounded-full border-4 border-blue-700' alt="Abubeker" />
+        <img 
+            src={AgaImg} 
+            className='w-32 h-32 sm:w-56 sm:h-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover' 
+            alt="Abubeker" 
+        />
       </section>
       <div className="social-links"> 
           <a href="https://www.linkedin.com/in/abubeker-taha-7bbb21296" target="_blank" rel="noopener noreferrer">
@@ -83,7 +95,7 @@ function App() {
         </div>
       <section id="about" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold text-center underline-custom">About Me</h1>
-        <p className='pt-10 text-xl text-indigo-300'>
+        <p className='font-size pt-10 text-xl text-indigo-300'>
                     I'm Abubeker Taha, a 5th year Electrical and Computer Engineering student at AAIT University. 
                     Alongside my core engineering studies, I have developed a strong passion for 
                     web development and 
@@ -118,7 +130,7 @@ function App() {
           <ProjectCard title="Amphibia Memory Card" description="A fun memory card game featuring amphibian characters." link="https://amphibia-memory-card.vercel.app/" />
         </div>
       </section>
-      <section id="service" className="py-16 bg-blue-950">
+      <section id="service" className="py-16 ">
   <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
   <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
