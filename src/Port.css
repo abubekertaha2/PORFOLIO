@@ -30,7 +30,6 @@ body {
 }
 
 nav {
-    /* background: rgba(18, 82, 211, 0.8); */
     backdrop-filter: blur(10px); 
     border-bottom: 2px solid #ff5733; 
 }
@@ -66,9 +65,9 @@ nav ul.flex {
 nav a {
     text-decoration: none;
 }
+
 .social-links {
-    /* position: absolute;  */
-    margin:15px auto;
+    margin: 15px auto;
     bottom: 15px;  
     display: flex;
     gap: 5px;
@@ -83,20 +82,22 @@ nav a {
 .social-links a:hover {
     color: #ff6347;
 }
-@media screen and (max-width:500px){
-    img{
-        padding:1px;
-        margin: auto;
-        max-width: 90%;
-        /* border:1px solid white; */
-        border-radius: 5px;
-    }
+
+img {
+    max-width: 100%; /* Ensures images don't exceed their container */
+    height: auto; /* Maintains aspect ratio */
+}
+
+@media screen and (max-width: 500px) {
     p {
         margin-top: 10px; 
         text-align: center;
     }
-    .font-size{font-size: 90%;}
+    .font-size {
+        font-size: 90%;
+    }
 }
+
 @media (max-width: 768px) {
     .social-links {
         bottom: 10px; 
@@ -141,6 +142,7 @@ nav a {
         padding: 3px;
     }
 }
+
 @media (min-width: 641px) and (max-width: 1024px) {
     nav {
         flex-direction: row;
@@ -159,6 +161,7 @@ nav a {
         padding: 5px;
     }
 }
+
 @media (min-width: 1025px) {
     nav {
         justify-content: space-between;

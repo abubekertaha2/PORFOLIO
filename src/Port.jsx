@@ -16,17 +16,14 @@ import p6 from './assets/p6.jpg';
 import p7 from './assets/p7.jpg';
 import p8 from './assets/p8.jpg';
 import p9 from './assets/p9.jpg';
+
 function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const portfolioImages = [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14];
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setMenuOpen(true);
-      } else {
-        setMenuOpen(false);
-      }
+      setMenuOpen(window.innerWidth >= 768);
     };
 
     window.addEventListener('resize', handleResize);
@@ -66,19 +63,20 @@ function App() {
         <div className="flex justify-around w-full mt-10">
           <img 
             src={p1} 
-            className='w-24 h-24 sm:w-32 sm:h-32 absolute top-40 left-20 rounded-full' 
+            className='w-24 h-auto sm:w-32 absolute top-40 left-20 rounded-full' 
             alt="Side Image 1"/>
           <img 
             src={p2} 
-            className='w-24 h-24 sm:w-32 sm:h-32 absolute top-40 right-20 rounded-full' 
+            className='w-24 h-auto sm:w-32 absolute top-40 right-20 rounded-full' 
             alt="Side Image 2"/>
         </div>
         <img 
             src={AgaImg} 
-            className='w-32 h-32 sm:w-56 sm:h-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover' 
+            className='w-32 h-auto sm:w-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover' 
             alt="Abubeker" 
         />
       </section>
+
       <div className="social-links"> 
           <a href="https://www.linkedin.com/in/abubeker-taha-7bbb21296" target="_blank" rel="noopener noreferrer">
             <i className='bx bxl-linkedin'></i>
@@ -93,19 +91,21 @@ function App() {
             <i className='bx bxl-whatsapp'></i>
           </a>
         </div>
+
       <section id="about" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold text-center underline-custom">About Me</h1>
         <p className='font-size pt-10 text-xl text-indigo-300'>
-                    I'm Abubeker Taha, a 5th year Electrical and Computer Engineering student at AAIT University. 
-                    Alongside my core engineering studies, I have developed a strong passion for 
-                    web development and 
-                    building responsive, user-centric digital experiences. Committed
-                    to continuous learning and
-                    professional growth, I aim to
-                    contribute to your institute network
-                    as developer.
+          I'm Abubeker Taha, a 5th year Electrical and Computer Engineering student at AAIT University. 
+          Alongside my core engineering studies, I have developed a strong passion for 
+          web development and 
+          building responsive, user-centric digital experiences. Committed
+          to continuous learning and
+          professional growth, I aim to
+          contribute to your institute network
+          as developer.
         </p>
       </section>
+
       <section id="portfolio" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold underline-custom">Portfolio</h1>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6">
@@ -130,19 +130,20 @@ function App() {
           <ProjectCard title="Amphibia Memory Card" description="A fun memory card game featuring amphibian characters." link="https://amphibia-memory-card.vercel.app/" />
         </div>
       </section>
+
       <section id="service" className="py-16 ">
-  <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
-  <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
-    <ServiceCard title="UI/GUI" description="Designing intuitive user interfaces that enhance user interaction." />
-    <ServiceCard title="SOFTWARE DEV" description="Developing robust software solutions that meet your business requirements." />
-    <ServiceCard title="API DEVELOPMENT" description="Implementing RESTful APIs for seamless communication between frontend and backend." />
-    <ServiceCard title="DATABASE MANAGEMENT" description="Managing and optimizing databases for data integrity and performance." />
-    <ServiceCard title="RESPONSIVE WEB DESIGN" description="Creating responsive web applications for optimal viewing experiences across all devices." />
-    <ServiceCard title="FULL STACK DEVELOPMENT" description="Building complete web solutions from front-end to back-end." />
-    <ServiceCard title="E-COMMERCE SOLUTIONS" description="Developing full-featured e-commerce platforms for online businesses." />
-  </div>
-</section>
+        <h1 className="text-3xl font-bold text-center mb-10 underline-custom">SERVICE I GIVE YOU</h1>
+        <div className="max-w-10xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <ServiceCard title="WEBSITE DESIGN" description="Creating visually appealing and user-friendly websites tailored to your business needs." />
+          <ServiceCard title="UI/GUI" description="Designing intuitive user interfaces that enhance user interaction." />
+          <ServiceCard title="SOFTWARE DEV" description="Developing robust software solutions that meet your business requirements." />
+          <ServiceCard title="API DEVELOPMENT" description="Implementing RESTful APIs for seamless communication between frontend and backend." />
+          <ServiceCard title="DATABASE MANAGEMENT" description="Managing and optimizing databases for data integrity and performance." />
+          <ServiceCard title="RESPONSIVE WEB DESIGN" description="Creating responsive web applications for optimal viewing experiences across all devices." />
+          <ServiceCard title="FULL STACK DEVELOPMENT" description="Building complete web solutions from front-end to back-end." />
+          <ServiceCard title="E-COMMERCE SOLUTIONS" description="Developing full-featured e-commerce platforms for online businesses." />
+        </div>
+      </section>
     </main>
   );
 }
