@@ -2,8 +2,11 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import './Port.css';
 import AgaImg from './assets/Aga.jpg';
-import p1 from './assets/p1.png';
-import p2 from './assets/p2.png';
+import p10 from './assets/p10.jpg';
+import p11 from './assets/p11.jpg';
+import p12 from './assets/p12.jpg';
+import p13 from './assets/p13.jpg';
+import p14 from './assets/p14.jpg';
 import p3 from './assets/p3.png';
 import p4 from './assets/p4.png';
 import p5 from './assets/p5.png';
@@ -11,11 +14,6 @@ import p6 from './assets/p6.jpg';
 import p7 from './assets/p7.jpg';
 import p8 from './assets/p8.jpg';
 import p9 from './assets/p9.jpg';
-import p10 from './assets/p10.jpg';
-import p11 from './assets/p11.jpg';
-import p12 from './assets/p12.jpg';
-import p13 from './assets/p13.jpg';
-import p14 from './assets/p14.jpg';
 
 function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -62,16 +60,6 @@ function App() {
         </h1>
         
         <div className="flex flex-col items-center mt-10">
-          <div className="flex justify-between w-full max-w-lg">
-            <img 
-              src={p1} 
-              className='w-24 h-auto sm:w-32 rounded-full' 
-              alt="Side Image 1"/>
-            <img 
-              src={p2} 
-              className='w-24 h-auto sm:w-32 rounded-full' 
-              alt="Side Image 2"/>
-          </div>
           <img 
             src={AgaImg} 
             className='w-32 h-auto sm:w-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover mt-4' 
