@@ -3,11 +3,6 @@ import { useEffect, useState } from 'react';
 import './Port.css';
 import AgaImg from './assets/Aga.jpg';
 import p1 from './assets/p1.png';
-import p10 from './assets/p10.jpg';
-import p11 from './assets/p11.jpg';
-import p12 from './assets/p12.jpg';
-import p13 from './assets/p13.jpg';
-import p14 from './assets/p14.jpg';
 import p2 from './assets/p2.png';
 import p3 from './assets/p3.png';
 import p4 from './assets/p4.png';
@@ -16,6 +11,11 @@ import p6 from './assets/p6.jpg';
 import p7 from './assets/p7.jpg';
 import p8 from './assets/p8.jpg';
 import p9 from './assets/p9.jpg';
+import p10 from './assets/p10.jpg';
+import p11 from './assets/p11.jpg';
+import p12 from './assets/p12.jpg';
+import p13 from './assets/p13.jpg';
+import p14 from './assets/p14.jpg';
 
 function App() {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -60,24 +60,26 @@ function App() {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-200 pb-10">
           Web Developer
         </h1>
-        <div className="flex justify-around w-full mt-10">
+        
+        <div className="flex flex-col items-center mt-10">
+          <div className="flex justify-between w-full max-w-lg">
+            <img 
+              src={p1} 
+              className='w-24 h-auto sm:w-32 rounded-full' 
+              alt="Side Image 1"/>
+            <img 
+              src={p2} 
+              className='w-24 h-auto sm:w-32 rounded-full' 
+              alt="Side Image 2"/>
+          </div>
           <img 
-            src={p1} 
-            className='w-24 h-auto sm:w-32 absolute top-40 left-20 rounded-full' 
-            alt="Side Image 1"/>
-          <img 
-            src={p2} 
-            className='w-24 h-auto sm:w-32 absolute top-40 right-20 rounded-full' 
-            alt="Side Image 2"/>
-        </div>
-        <img 
             src={AgaImg} 
-            className='w-32 h-auto sm:w-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover' 
+            className='w-32 h-auto sm:w-56 pt-0 pb-0 rounded-full border-4 border-blue-700 object-cover mt-4' 
             alt="Abubeker" 
-        />
-      </section>
-
-      <div className="social-links"> 
+          />
+        </div>
+        
+        <div className="social-links"> 
           <a href="https://www.linkedin.com/in/abubeker-taha-7bbb21296" target="_blank" rel="noopener noreferrer">
             <i className='bx bxl-linkedin'></i>
           </a>
@@ -91,6 +93,7 @@ function App() {
             <i className='bx bxl-whatsapp'></i>
           </a>
         </div>
+      </section>
 
       <section id="about" className="pb-10 mb-5">
         <h1 className="text-3xl font-bold text-center underline-custom">About Me</h1>
